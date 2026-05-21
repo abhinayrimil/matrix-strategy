@@ -1,0 +1,33 @@
+name: Python Setup and Verification
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  verify-environment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Python setup
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Dependency installation
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest flake8
+
+    - name: Python version verification
+      run: python --version
+
+    - name: Flake8 check
+      run: flake8 --version
+
+    - name: Pytest check
+      run: pytest --version
