@@ -1,0 +1,13 @@
+name: Print Access ID
+
+on:
+  push:
+
+jobs:
+  print-access-id:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the repository variable
+        run: echo "The ACCESS_ID is ${{ vars.ACCESS_ID }}"
+
