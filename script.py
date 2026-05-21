@@ -1,5 +1,3 @@
-def greet(name):
-    print(f"Hello, {name}!")  # This line has an extra space that violates PEP8
+def add(a, b):
+    return a + b
 
-
-greet("John")
